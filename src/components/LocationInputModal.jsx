@@ -1,8 +1,37 @@
+import { useState } from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdMyLocation } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 
 const LocationInputModal = ({ setIsModalOpen }) => {
+
+  const [city, setCity] = useState("");
+  const [isLocationLoading, setIsLocationLoading] = useState(false);
+  const [isWeatherLoading, setIsWeatherLoading] = useState(false);
+
+  const handleForm = (e) => {
+    e.preventDefault();
+    setIsWeatherLoading(true);
+
+    setIsWeatherLoading(false);
+    setCity("");
+  };
+
+  const handleGeoLocation = () => {
+    setIsLocationLoading(true);
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => { 
+        const { latitude, longitude } = position.coords;
+        console.log(latitude, longitude);
+        setIsLocationLoading(false);
+      },
+      (error) => { 
+        setIsLocationLoading(false);
+        console.log(error); 
+      }
+    );
+  };
 
   return (
 
@@ -38,21 +67,26 @@ const LocationInputModal = ({ setIsModalOpen }) => {
           </p>
         </div>
 
-        <form>
+        <form onSubmit={handleForm}>
           <div className="flex flex-col gap-2">
             <label className="font-semibold text-slate-700 text-sm">Enter you city</label>
             <input
               className="border border-slate-400 focus:outline-0 p-2 rounded-xl text-sm"
+              onChange={(e) => setCity(e.target.value)}
               placeholder="e.g. Dhaka" 
               type="text"
+              value={city}
             />
           </div>
 
           <button 
             className="bg-linear-to-r from-blue-500 to-blue-600 cursor-pointer duration-300 font-semibold mt-4 py-2 rounded-full active:scale-95 text-sm text-white transition w-full"
+            disabled={isWeatherLoading}
             type="submit"
           >
-            Get Weather
+            {
+              isWeatherLoading ? "Loading..." : "Get Weather"
+            }
           </button>
         </form>
 
@@ -64,9 +98,19 @@ const LocationInputModal = ({ setIsModalOpen }) => {
 
         <button 
           className="border border-gray-300 cursor-pointer duration-300 flex font-semibold gap-1 items-center justify-center py-2 rounded-full active:scale-95 text-blue-600 text-sm transition w-full"
+          disabled={isLocationLoading}
+          onClick={handleGeoLocation}
         >
-          <MdMyLocation />
-          Use My Location
+          {
+            isLocationLoading ? 
+              "Loading..." : (
+              <>
+                <MdMyLocation />
+                Use My Location
+              </>
+            )
+          }
+          
         </button>
 
       </div>
