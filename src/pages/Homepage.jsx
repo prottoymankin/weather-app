@@ -4,8 +4,12 @@ import sun from "../assets/sun.png";
 import cloud from "../assets/cloud.png";
 import rain from "../assets/rain.png";
 import lightning from "../assets/lightning.png";
+import LocationInputModal from "../components/LocationInputModal";
+import { useState } from "react";
 
 const Homepage = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
 
@@ -62,6 +66,7 @@ const Homepage = () => {
 
         <button
           className="bg-linear-to-r from-blue-500 to-blue-600 cursor-pointer duration-300 flex font-bold gap-1 items-center px-6 py-3 rounded-full active:scale-95 text-white transition"
+          onClick={() => setIsModalOpen(true)}
         >
           Check My Weather
           <FaArrowRight />
@@ -69,6 +74,11 @@ const Homepage = () => {
       </div>
 
       <FeatureCards />
+
+      {
+        isModalOpen && <LocationInputModal setIsModalOpen={setIsModalOpen} />
+      }
+      
 
     </div>
 
