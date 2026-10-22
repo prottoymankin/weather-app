@@ -1,6 +1,7 @@
 import { IoLocationOutline } from "react-icons/io5";
 
 import WeatherDetailCards from "./WeatherDetailCards";
+import { getWeatherCondition } from "../../constants/weatherConditions";
 
 const CurrentWeatherCard = ({ weatherData }) => {
 
@@ -8,9 +9,12 @@ const CurrentWeatherCard = ({ weatherData }) => {
   const { 
     apparent_temperature, 
     relative_humidity_2m, 
-    temperature_2m, 
+    temperature_2m,
+    weather_code, 
     wind_speed_10m
- } = weatherData;
+  } = weatherData;
+
+  const { category, description } = getWeatherCondition(weather_code);
 
   return (
 
@@ -33,8 +37,8 @@ const CurrentWeatherCard = ({ weatherData }) => {
         </h2>
 
         <div>
-          <p className="font-semibold text-slate-900">Drizzle</p>
-          <p className="font-semibold text-slate-600 text-xs">Light drizzle</p>
+          <p className="font-semibold text-slate-900">{category}</p>
+          <p className="font-semibold text-slate-600 text-xs">{description}</p>
         </div>
       </div>
 
