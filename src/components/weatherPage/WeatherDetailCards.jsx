@@ -6,7 +6,7 @@ const WeatherDetailCards = ({ apparentTemperature, humidity, windSpeed }) => {
 
   return (
 
-    <div className="flex gap-2">
+    <div className="gap-2 grid sm:grid-cols-3">
       <WeatherDetailCard
         icon={<FiThermometer />}
         title={"Feels Like"}

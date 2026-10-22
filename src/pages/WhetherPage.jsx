@@ -1,10 +1,11 @@
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { getWeatherByCoordinates } from "../services/weather.service";
 import { useEffect, useState } from "react";
 
 import CurrentWeatherCard from "../components/weatherPage/CurrentWeatherCard";
 import WeatherPageHeader from "../components/weatherPage/WeatherPageHeader";
 import WeatherConditionCard from "../components/weatherPage/WeatherConditionCard";
+import Loader from "../components/Loader";
 
 const WhetherPage = () => {
 
@@ -12,10 +13,17 @@ const WhetherPage = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const { latitude, longitude } = state;
+  const latitude = state?.latitude;
+  const longitude = state?.longitude;
 
   useEffect(() => {
+    if (latitude == null || longitude == null) {
+      navigate("/", { replace: true });
+      return;
+    }
+
     const getWeather = async () => {
       try {
         setError("");
@@ -30,7 +38,11 @@ const WhetherPage = () => {
     }
 
     getWeather();
-  }, [latitude, longitude]);
+  }, [latitude, longitude, navigate]);
+
+  if (isLoading) {
+    return <Loader />
+  };
 
   return (
 
@@ -38,7 +50,7 @@ const WhetherPage = () => {
       
       <WeatherPageHeader />
 
-      <div className="flex gap-5 items-start max-w-5xl w-full">
+      <div className="gap-5 grid lg:grid-cols-2 items-start max-w-5xl w-full">
         {
           weatherData && (
             <>
