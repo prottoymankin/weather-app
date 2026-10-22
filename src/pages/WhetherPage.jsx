@@ -6,6 +6,7 @@ import CurrentWeatherCard from "../components/weatherPage/CurrentWeatherCard";
 import WeatherPageHeader from "../components/weatherPage/WeatherPageHeader";
 import WeatherConditionCard from "../components/weatherPage/WeatherConditionCard";
 import Loader from "../components/Loader";
+import WeatherAdviceCard from "../components/weatherPage/WeatherAdviceCard";
 
 const WhetherPage = () => {
 
@@ -54,9 +55,15 @@ const WhetherPage = () => {
         {
           weatherData && (
             <>
-              <CurrentWeatherCard 
-                weatherData={weatherData}
-              />
+              <div>
+                <CurrentWeatherCard 
+                  weatherData={weatherData}
+                />
+
+                <WeatherAdviceCard
+                  weatherData={weatherData}
+                />
+              </div>
 
               <WeatherConditionCard
                 weatherData={weatherData}
