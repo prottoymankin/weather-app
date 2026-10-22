@@ -4,6 +4,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { MdMyLocation } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { getCoordinatesByCity } from "../services/geocoding.service";
+import { useNavigate } from "react-router";
 
 const LocationInputModal = ({ setIsModalOpen }) => {
 
@@ -11,6 +12,7 @@ const LocationInputModal = ({ setIsModalOpen }) => {
   const [isLocationLoading, setIsLocationLoading] = useState(false);
   const [isWeatherLoading, setIsWeatherLoading] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -19,6 +21,12 @@ const LocationInputModal = ({ setIsModalOpen }) => {
 
     try {
       const location = await getCoordinatesByCity(city.trim());
+
+      navigate(
+        "/whether",
+        { state: location }
+      );
+
       setCity("");
     } catch (error) {
       setError(error.message || "Something went wrong.");
@@ -33,8 +41,14 @@ const LocationInputModal = ({ setIsModalOpen }) => {
     navigator.geolocation.getCurrentPosition(
       (position) => { 
         setError("");
+
         const { latitude, longitude } = position.coords;
-        console.log(latitude, longitude)
+        
+        navigate(
+          "/whether",
+          { state: { latitude, longitude } }
+        );
+
         setIsLocationLoading(false);
       },
       (error) => { 
