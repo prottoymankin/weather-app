@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import CurrentWeatherCard from "../components/weatherPage/CurrentWeatherCard";
 import WeatherPageHeader from "../components/weatherPage/WeatherPageHeader";
+import WeatherConditionCard from "../components/weatherPage/WeatherConditionCard";
 
 const WhetherPage = () => {
 
@@ -37,12 +38,18 @@ const WhetherPage = () => {
       
       <WeatherPageHeader />
 
-      <div className="grid grid-cols-2 max-w-4xl w-full">
+      <div className="flex gap-5 items-start max-w-5xl w-full">
         {
           weatherData && (
-            <CurrentWeatherCard 
-              weatherData={weatherData}
-            />
+            <>
+              <CurrentWeatherCard 
+                weatherData={weatherData}
+              />
+
+              <WeatherConditionCard
+                weatherData={weatherData}
+              />
+            </>
           )
         }
       </div>

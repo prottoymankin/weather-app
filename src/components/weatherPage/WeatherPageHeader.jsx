@@ -6,7 +6,7 @@ const WeatherPageHeader = () => {
 
   return (
 
-    <div className="flex items-center justify-between max-w-4xl w-full">
+    <div className="flex items-center justify-between max-w-5xl w-full">
       <Link
         className="active:scale-95 bg-white duration-300 flex font-medium gap-1 items-center px-4 py-2 rounded-full shadow-2xl text-blue-600 text-sm transition" 
         to={"/"}

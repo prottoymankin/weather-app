@@ -5,7 +5,6 @@ import { getWeatherCondition } from "../../constants/weatherConditions";
 
 const CurrentWeatherCard = ({ weatherData }) => {
 
-  console.log(weatherData)
   const { 
     apparent_temperature, 
     relative_humidity_2m, 
@@ -18,7 +17,7 @@ const CurrentWeatherCard = ({ weatherData }) => {
 
   return (
 
-    <div className="bg-linear-to-tr from-white to-blue-100 p-5 rounded-2xl shadow-xl/10 space-y-5">
+    <div className="bg-linear-to-tr from-white to-blue-100 flex-1 p-5 rounded-2xl shadow-xl/10 space-y-5">
       
       <div
         className="bg-blue-100 flex font-medium gap-2 items-center py-1 px-4 rounded-full shadow-xl text-blue-600 text-xs uppercase w-fit"
@@ -41,7 +40,6 @@ const CurrentWeatherCard = ({ weatherData }) => {
           <p className="font-semibold text-slate-600 text-xs">{description}</p>
         </div>
       </div>
-
 
       <WeatherDetailCards
         apparentTemperature={apparent_temperature}
