@@ -40,9 +40,9 @@ const Homepage = () => {
         <div 
           className="bg-white flex font-medium gap-2 items-center py-1 px-4 rounded-full shadow-xl text-blue-600 text-xs w-fit"
         >
-          <span class="relative flex size-2">
-            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
-            <span class="relative inline-flex size-2 rounded-full bg-blue-500"></span>
+          <span className="relative flex size-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
+            <span className="relative inline-flex size-2 rounded-full bg-blue-500"></span>
           </span>
 
           Free weather advice, no signup

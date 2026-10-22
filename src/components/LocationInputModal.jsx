@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoMdWarning } from "react-icons/io";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdMyLocation } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
@@ -8,6 +9,7 @@ const LocationInputModal = ({ setIsModalOpen }) => {
   const [city, setCity] = useState("");
   const [isLocationLoading, setIsLocationLoading] = useState(false);
   const [isWeatherLoading, setIsWeatherLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleForm = (e) => {
     e.preventDefault();
@@ -22,13 +24,16 @@ const LocationInputModal = ({ setIsModalOpen }) => {
 
     navigator.geolocation.getCurrentPosition(
       (position) => { 
+        setError("");
         const { latitude, longitude } = position.coords;
-        console.log(latitude, longitude);
+        console.log(latitude, longitude)
         setIsLocationLoading(false);
       },
       (error) => { 
         setIsLocationLoading(false);
-        console.log(error); 
+        setError(error.message); 
+      }, {
+        timeout: 10000
       }
     );
   };
@@ -112,6 +117,17 @@ const LocationInputModal = ({ setIsModalOpen }) => {
           }
           
         </button>
+
+        {
+          error && (
+            <p 
+              className="bg-red-200 flex font-medium gap-1 items-center px-4 py-2 rounded-full text-red-600 text-xs"
+            >
+              <IoMdWarning />
+              {error}
+            </p>
+          )
+        }
 
       </div>
 
