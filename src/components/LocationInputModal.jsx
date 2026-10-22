@@ -3,6 +3,7 @@ import { IoMdWarning } from "react-icons/io";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdMyLocation } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
+import { getCoordinatesByCity } from "../services/geocoding.service";
 
 const LocationInputModal = ({ setIsModalOpen }) => {
 
@@ -11,12 +12,19 @@ const LocationInputModal = ({ setIsModalOpen }) => {
   const [isWeatherLoading, setIsWeatherLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleForm = (e) => {
+  const handleForm = async (e) => {
     e.preventDefault();
     setIsWeatherLoading(true);
+    setError("");
 
-    setIsWeatherLoading(false);
-    setCity("");
+    try {
+      const location = await getCoordinatesByCity(city.trim());
+      setCity("");
+    } catch (error) {
+      setError(error.message || "Something went wrong.");
+    } finally {
+      setIsWeatherLoading(false);
+    }
   };
 
   const handleGeoLocation = () => {
