@@ -2,6 +2,7 @@ import { IoLocationOutline } from "react-icons/io5";
 
 import WeatherDetailCards from "./WeatherDetailCards";
 import { getWeatherCondition } from "../../constants/weatherConditions";
+import LiveBadge from "../shared/LiveBadge";
 
 const CurrentWeatherCard = ({ weatherData }) => {
 
@@ -20,11 +21,7 @@ const CurrentWeatherCard = ({ weatherData }) => {
 
     <div className="bg-linear-to-tr from-white to-blue-100 flex-1 p-5 rounded-2xl shadow-xl/10 space-y-5">
       
-      <div
-        className="bg-blue-100 flex font-medium gap-2 items-center py-1 px-4 rounded-full shadow-xl text-blue-600 text-xs uppercase w-fit"
-      >
-        Today's Weather
-      </div>
+      <LiveBadge label={"Today's Weather"} />
 
       <div className="flex font-semibold gap-2 items-center text-2xl text-slate-900">
         <IoLocationOutline className="size-5 text-blue-600" />

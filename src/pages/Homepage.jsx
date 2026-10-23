@@ -6,6 +6,7 @@ import rain from "../assets/rain.png";
 import lightning from "../assets/lightning.png";
 import LocationInputModal from "../components/LocationInputModal";
 import { useState } from "react";
+import LiveBadge from "../components/shared/LiveBadge";
 
 const Homepage = () => {
 
@@ -37,16 +38,7 @@ const Homepage = () => {
       />
 
       <div className="flex flex-col gap-5 items-center justify-center">
-        <div 
-          className="bg-white flex font-medium gap-2 items-center py-1 px-4 rounded-full shadow-xl text-blue-600 text-xs w-fit"
-        >
-          <span className="relative flex size-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
-            <span className="relative inline-flex size-2 rounded-full bg-blue-500"></span>
-          </span>
-
-          Free weather advice, no signup
-        </div>
+        <LiveBadge label={"Free weather advice, no signup"} />
 
         <h1 className="font-extrabold text-slate-900 text-6xl md:text-7xl">
           Next

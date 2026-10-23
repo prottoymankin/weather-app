@@ -2,6 +2,7 @@ import { FiThermometer } from "react-icons/fi";
 import { getWeatherCondition } from "../../constants/weatherConditions";
 import { formatTime } from "../../utils/formateTime";
 import { IoMdTime } from "react-icons/io";
+import LiveBadge from "../shared/LiveBadge";
 
 const WeatherConditionCard = ({ weatherData }) => {
 
@@ -17,18 +18,9 @@ const WeatherConditionCard = ({ weatherData }) => {
 
     <div className="bg-linear-to-br from-white to-blue-300 flex-1 p-5 rounded-2xl shadow-xl/10">
       
-      <div 
-        className="bg-white flex font-medium gap-2 items-center mb-10 py-1 px-4 rounded-full shadow-xl text-blue-600 text-xs uppercase w-fit"
-      >
-        <span className="relative flex size-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
-          <span className="relative inline-flex size-2 rounded-full bg-blue-500"></span>
-        </span>
+      <LiveBadge label={"Live in your location"} />
 
-        Live in your location
-      </div>
-
-      <div className="space-y-5">
+      <div className="mt-10 space-y-5">
         <img 
           alt="" 
           className="h-30 mx-auto"
