@@ -12,7 +12,6 @@ const WhetherPage = () => {
 
   const { state } = useLocation();
   const [weatherData, setWeatherData] = useState(null);
-  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -21,20 +20,21 @@ const WhetherPage = () => {
   const name = state?.name;
 
   useEffect(() => {
-    if (latitude == null || longitude == null || name == null) {
+    if (!state) {
       navigate("/", { replace: true });
       return;
     }
 
     const getWeather = async () => {
       try {
-        setError("");
         setIsLoading(true);
         const data = await getWeatherByCoordinates(latitude, longitude);
         data.name = name;
         setWeatherData(data);
       } catch (error) {
-        setError(error.message || "Something went wrong.");
+        navigate("/error", {
+          state: { errorMessage: error.message, latitude, longitude, name }
+        })
       } finally {
         setIsLoading(false);
       }

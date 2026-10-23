@@ -23,7 +23,7 @@ const LocationInputModal = ({ setIsModalOpen }) => {
       const location = await getCoordinatesByCity(city.trim());
 
       navigate(
-        "/whether",
+        "/weather",
         { state: location }
       );
 
