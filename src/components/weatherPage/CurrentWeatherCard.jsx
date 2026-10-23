@@ -6,7 +6,8 @@ import { getWeatherCondition } from "../../constants/weatherConditions";
 const CurrentWeatherCard = ({ weatherData }) => {
 
   const { 
-    apparent_temperature, 
+    apparent_temperature,
+    name, 
     relative_humidity_2m, 
     temperature_2m,
     weather_code, 
@@ -27,7 +28,7 @@ const CurrentWeatherCard = ({ weatherData }) => {
 
       <div className="flex font-semibold gap-2 items-center text-2xl text-slate-900">
         <IoLocationOutline className="size-5 text-blue-600" />
-        <p>Your Location</p>
+        <p>{name}</p>
       </div>
 
       <div className="flex gap-2 items-center">

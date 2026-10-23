@@ -46,7 +46,7 @@ const LocationInputModal = ({ setIsModalOpen }) => {
         
         navigate(
           "/whether",
-          { state: { latitude, longitude } }
+          { state: { latitude, longitude, name: "Your Location" } }
         );
 
         setIsLocationLoading(false);

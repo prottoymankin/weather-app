@@ -18,9 +18,10 @@ const WhetherPage = () => {
 
   const latitude = state?.latitude;
   const longitude = state?.longitude;
+  const name = state?.name;
 
   useEffect(() => {
-    if (latitude == null || longitude == null) {
+    if (latitude == null || longitude == null || name == null) {
       navigate("/", { replace: true });
       return;
     }
@@ -30,6 +31,7 @@ const WhetherPage = () => {
         setError("");
         setIsLoading(true);
         const data = await getWeatherByCoordinates(latitude, longitude);
+        data.name = name;
         setWeatherData(data);
       } catch (error) {
         setError(error.message || "Something went wrong.");
@@ -39,7 +41,7 @@ const WhetherPage = () => {
     }
 
     getWeather();
-  }, [latitude, longitude, navigate]);
+  }, [latitude, longitude, name, navigate]);
 
   if (isLoading) {
     return <Loader />
