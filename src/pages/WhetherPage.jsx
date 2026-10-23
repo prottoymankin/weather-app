@@ -41,7 +41,7 @@ const WhetherPage = () => {
     }
 
     getWeather();
-  }, [latitude, longitude, name, navigate]);
+  }, [latitude, longitude, name, navigate, state]);
 
   if (isLoading) {
     return <Loader />
