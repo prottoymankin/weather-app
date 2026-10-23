@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import Homepage from "../pages/Homepage";
 import WhetherPage from "../pages/WhetherPage";
 import SomethingWentWrong from "../pages/SomethingWentWrong";
+import NotFoundPage from "../pages/NotFoundPage";
 
 export const router = createBrowserRouter([
   {
@@ -15,5 +16,9 @@ export const router = createBrowserRouter([
   {
     path: "/error",
     element: <SomethingWentWrong />
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />
   }
 ]);
