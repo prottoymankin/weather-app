@@ -7,12 +7,14 @@ import WeatherPageHeader from "../components/weatherPage/WeatherPageHeader";
 import WeatherConditionCard from "../components/weatherPage/WeatherConditionCard";
 import Loader from "../components/Loader";
 import WeatherAdviceCard from "../components/weatherPage/WeatherAdviceCard";
+import LocationInputModal from "../components/LocationInputModal";
 
 const WhetherPage = () => {
 
   const { state } = useLocation();
   const [weatherData, setWeatherData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const latitude = state?.latitude;
@@ -37,6 +39,7 @@ const WhetherPage = () => {
         })
       } finally {
         setIsLoading(false);
+        setIsModalOpen(false)
       }
     }
 
@@ -51,7 +54,9 @@ const WhetherPage = () => {
 
     <div className="bg-blue-50 flex flex-col items-center justify-center min-h-dvh p-5 space-y-10">
       
-      <WeatherPageHeader />
+      <WeatherPageHeader
+        onOpen={() => setIsModalOpen(true)}
+      />
 
       <div className="gap-5 grid lg:grid-cols-2 items-start max-w-5xl w-full">
         {
@@ -74,6 +79,14 @@ const WhetherPage = () => {
           )
         }
       </div>
+
+      { 
+        isModalOpen && (
+          <LocationInputModal
+            onClose={() => setIsModalOpen(false)} 
+          /> 
+        )
+      }
 
     </div>
 

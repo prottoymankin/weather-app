@@ -2,7 +2,7 @@ import { FaArrowLeft } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
 import { Link } from "react-router";
 
-const WeatherPageHeader = () => {
+const WeatherPageHeader = ({ onOpen }) => {
 
   return (
 
@@ -16,7 +16,8 @@ const WeatherPageHeader = () => {
       </Link>
 
       <button
-        className="active:scale-95 bg-white cursor-pointer duration-300 flex font-medium gap-1 items-center px-4 py-2 rounded-full shadow-2xl text-blue-600 text-sm transition" 
+        className="active:scale-95 bg-white cursor-pointer duration-300 flex font-medium gap-1 items-center px-4 py-2 rounded-full shadow-2xl text-blue-600 text-sm transition"
+        onClick={onOpen}
       >
         <CiSearch className="size-5" />
         Change City

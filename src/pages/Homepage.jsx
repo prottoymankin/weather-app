@@ -68,7 +68,11 @@ const Homepage = () => {
       <FeatureCards />
 
       {
-        isModalOpen && <LocationInputModal setIsModalOpen={setIsModalOpen} />
+        isModalOpen && (
+          <LocationInputModal 
+            onClose={() => setIsModalOpen(false)} 
+          />
+        )
       }
       
 

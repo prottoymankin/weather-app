@@ -6,7 +6,7 @@ import { RxCross2 } from "react-icons/rx";
 import { getCoordinatesByCity } from "../services/geocoding.service";
 import { useNavigate } from "react-router";
 
-const LocationInputModal = ({ setIsModalOpen }) => {
+const LocationInputModal = ({ onClose }) => {
 
   const [city, setCity] = useState("");
   const [isLocationLoading, setIsLocationLoading] = useState(false);
@@ -64,7 +64,7 @@ const LocationInputModal = ({ setIsModalOpen }) => {
 
     <div 
       className="bg-black/20 fixed flex h-full inset-0 items-center justify-center p-5"
-      onClick={() => setIsModalOpen(false)}
+      onClick={onClose}
     >
 
       <div 
@@ -73,7 +73,7 @@ const LocationInputModal = ({ setIsModalOpen }) => {
       >
         <button 
           className="absolute border border-gray-300 cursor-pointer flex h-8 items-center justify-center right-6 rounded-full top-3 w-8"
-          onClick={() => setIsModalOpen(false)}
+          onClick={onClose}
         >
           <RxCross2 />
         </button>
