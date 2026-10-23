@@ -28,7 +28,7 @@ const SomethingWentWrong = () => {
 
   return (
 
-    <div className="bg-blue-50 flex h-dvh items-center justify-center">
+    <div className="bg-blue-50 flex h-dvh items-center justify-center p-5">
 
       <div 
         className="bg-white flex flex-col items-center justify-center max-w-xl p-10 rounded-2xl shadow-xl/10 w-full"
@@ -40,11 +40,11 @@ const SomethingWentWrong = () => {
         />
 
         <div className="text-center mb-8">
-          <h2 className="font-semibold text-slate-900 text-2xl">
+          <h2 className="font-semibold text-2xl">
             Something Went Wrong
           </h2>
 
-          <p className="font-medium text-slate-600">
+          <p className="font-medium text-slate-500">
             {errorMessage || "We couldn't load the weather data. Please check your connection and try again."}
           </p>
         </div>

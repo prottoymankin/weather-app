@@ -9,8 +9,8 @@ const WeatherDetailCard = ({ icon, title, value }) => {
       </div>
 
       <div>
-        <p className="font-medium text-slate-600 text-xs">{title}</p>
-        <p className="font-semibold text-slate-900">{value}</p>
+        <p className="font-medium text-slate-500 text-xs">{title}</p>
+        <p className="font-semibold">{value}</p>
       </div>
     </div>
   );

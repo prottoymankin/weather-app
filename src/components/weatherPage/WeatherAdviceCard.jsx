@@ -15,7 +15,7 @@ const WeatherAdviceCard = ({ weatherData }) => {
 
       <LiveBadge label={"Smart Suggestion"} />
 
-      <p className="font-semibold text-slate-900">
+      <p className="font-semibold">
         {weatherAdvice.advice}
       </p>
       

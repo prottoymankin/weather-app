@@ -5,9 +5,21 @@ import { BsLightbulb, BsLightningCharge } from "react-icons/bs";
 const FeatureCards = () => {
 
   const cards = [
-    { icon: <BsLightningCharge />, title: "Instant Weather", text: "Live conditions for any city" },
-    { icon: <BsLightbulb />, title: "Smart Tips", text: "A suggestion for your day" },
-    { icon: <FaRegCheckCircle />, title: "No Signup", text: "Free and always available" }
+    { 
+      icon: <BsLightningCharge />, 
+      title: "Instant Weather", 
+      text: "Live conditions for any city" 
+    },
+    { 
+      icon: <BsLightbulb />, 
+      title: "Smart Tips", 
+      text: "A suggestion for your day" 
+    },
+    { 
+      icon: <FaRegCheckCircle />, 
+      title: "No Signup", 
+      text: "Free and always available" 
+    }
   ];
 
   return (

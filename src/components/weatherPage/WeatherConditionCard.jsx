@@ -32,7 +32,7 @@ const WeatherConditionCard = ({ weatherData }) => {
             {category}
           </h3>
 
-          <p className="font-semibold text-slate-600 text-sm">
+          <p className="font-semibold text-slate-500 text-sm">
             {description}
           </p>
         </div>

@@ -6,7 +6,7 @@ const NotFoundPage = () => {
 
   return (
 
-    <div className="bg-blue-50 flex h-dvh items-center justify-center">
+    <div className="bg-blue-50 flex h-dvh items-center justify-center p-5">
       
       <div className="bg-white flex flex-col items-center max-w-xl p-5 rounded-2xl w-full">
         <img 

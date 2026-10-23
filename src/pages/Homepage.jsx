@@ -40,7 +40,7 @@ const Homepage = () => {
       <div className="flex flex-col gap-5 items-center justify-center">
         <LiveBadge label={"Free weather advice, no signup"} />
 
-        <h1 className="font-extrabold text-slate-900 text-6xl md:text-7xl">
+        <h1 className="font-extrabold text-6xl md:text-7xl">
           Next
 
           <span className="bg-linear-to-r from-blue-500 to-blue-300 bg-clip-text text-transparent">
@@ -48,7 +48,7 @@ const Homepage = () => {
           </span>
         </h1>
 
-        <p className="font-medium text-slate-900 text-center text-xl sm:text-2xl">
+        <p className="font-medium text-center text-xl sm:text-2xl">
           Know the weather, know what to carry.
         </p>
 

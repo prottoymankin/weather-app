@@ -13,7 +13,7 @@ const Loader = () => {
           src={weather} 
         />
 
-        <p className="animate-pulse text-slate-900 text-2xl">
+        <p className="animate-pulse text-2xl">
           Loading...
         </p>
       </div>

@@ -10,8 +10,8 @@ const FeatureCard = ({ icon, title, text }) => {
       </div>
 
       <div>
-        <h3 className="font-bold text-slate-900">{title}</h3>
-        <p className="font-medium text-slate-600">{text}</p>
+        <h3 className="font-bold">{title}</h3>
+        <p className="font-medium text-slate-500">{text}</p>
       </div>
     </div>
 

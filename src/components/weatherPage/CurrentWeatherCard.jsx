@@ -23,19 +23,19 @@ const CurrentWeatherCard = ({ weatherData }) => {
       
       <LiveBadge label={"Today's Weather"} />
 
-      <div className="flex font-semibold gap-2 items-center text-2xl text-slate-900">
+      <div className="flex font-semibold gap-2 items-center text-2xl">
         <IoLocationOutline className="size-5 text-blue-600" />
         <p>{name}</p>
       </div>
 
       <div className="flex gap-2 items-center">
-        <h2 className="font-extrabold leading-none text-blue-600 text-7xl">
+        <h2 className="bg-linear-to-r from-blue-500 to-blue-300 bg-clip-text font-extrabold leading-none text-transparent text-7xl">
           {Math.round(temperature_2m)}&#176;
         </h2>
 
         <div>
-          <p className="font-semibold text-slate-900">{category}</p>
-          <p className="font-semibold text-slate-600 text-xs">{description}</p>
+          <p className="font-semibold">{category}</p>
+          <p className="font-semibold text-slate-500 text-xs">{description}</p>
         </div>
       </div>
 

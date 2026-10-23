@@ -45,7 +45,7 @@ const LocationInputModal = ({ setIsModalOpen }) => {
         const { latitude, longitude } = position.coords;
         
         navigate(
-          "/whether",
+          "/weather",
           { state: { latitude, longitude, name: "Your Location" } }
         );
 
@@ -63,7 +63,7 @@ const LocationInputModal = ({ setIsModalOpen }) => {
   return (
 
     <div 
-      className="bg-black/20 fixed flex h-full inset-0 items-center justify-center"
+      className="bg-black/20 fixed flex h-full inset-0 items-center justify-center p-5"
       onClick={() => setIsModalOpen(false)}
     >
 
@@ -85,7 +85,7 @@ const LocationInputModal = ({ setIsModalOpen }) => {
         </div>
 
         <div>
-          <h2 className="font-semibold text-xl text-slate-900">
+          <h2 className="font-semibold text-xl">
             Where are you today?
           </h2>
 
@@ -96,9 +96,9 @@ const LocationInputModal = ({ setIsModalOpen }) => {
 
         <form onSubmit={handleForm}>
           <div className="flex flex-col gap-2">
-            <label className="font-semibold text-slate-700 text-sm">Enter you city</label>
+            <label className="font-semibold text-sm">Enter you city</label>
             <input
-              className="border border-slate-400 focus:outline-0 p-2 rounded-xl text-sm"
+              className="border border-slate-500 focus:outline-0 p-2 rounded-xl text-sm"
               onChange={(e) => setCity(e.target.value)}
               placeholder="e.g. Dhaka" 
               type="text"
@@ -118,13 +118,13 @@ const LocationInputModal = ({ setIsModalOpen }) => {
         </form>
 
         <div className="flex gap-2 items-center">
-          <div className="bg-gray-300 flex-1 h-px "></div>
-          <span className="font-semibold text-slate-900 text-sm leading-none">or</span>
-          <div className="bg-gray-300 flex-1 h-px"></div>
+          <div className="bg-slate-500 flex-1 h-px "></div>
+          <span className="font-semibold text-sm leading-none">or</span>
+          <div className="bg-slate-500 flex-1 h-px"></div>
         </div>
 
         <button 
-          className="border border-gray-300 cursor-pointer duration-300 flex font-semibold gap-1 items-center justify-center py-2 rounded-full active:scale-95 text-blue-600 text-sm transition w-full"
+          className="border border-blue-600 cursor-pointer duration-300 flex font-semibold gap-1 items-center justify-center py-2 rounded-full active:scale-95 text-blue-600 text-sm transition w-full"
           disabled={isLocationLoading}
           onClick={handleGeoLocation}
         >
